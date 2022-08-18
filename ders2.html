@@ -1,0 +1,21 @@
+<canvas id="canvas" width="200px" height="100px" style="border: 1px solid black;"> </canvas>
+<script>
+    var c=document.getElementById("canvas");
+    var ctx=c.getContext("2d");
+
+    ctx.moveTo(0,0);
+    ctx.lineTo(135,30);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(150,45,23,0,2*Math.PI);
+    ctx.stroke();
+    ctx.font="20px arial";
+    ctx.fillText("E",142,50);
+    ctx.stroke();
+   
+    
+    
+    
+
+
+</script>

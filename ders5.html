@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Bu sayfada kullanıcın lokasyon bilgisi enlem ve boylam alınacaktır.</p>
+    <button type="button" onclick="lokasyonAll()">Konum Bilgisi</button>
+    <br><br><br>
+    
+
+    
+    <h3>Hafızaya Veri Kaydetmek</h3>
+    <input type="text" id="data"><br>
+    <input type="text" id="data2">
+    <br>
+    <button type="button" onclick="verisakla()">Veriyi Sakla</button>
+    <button type="button" onclick="verigetir()">Veriyi getir</button><br>
+    <p id="veri">İsim</p>
+    <p id="veri2">Soyisim</p>
+    <p id="lokasyon">...</p>
+    <script>
+        function verisakla(){
+            var data=  document.getElementById("data").value;
+            localStorage.setItem('data',data)
+            var data2 =  document.getElementById("data2").value;
+            localStorage.setItem('data2',data2)
+        }
+         function verigetir(){
+            document.getElementById("veri").innerHTML=":" +localStorage.getItem("data")
+            document.getElementById("veri2").innerHTML=":" +localStorage.getItem("data2")
+         }
+         var lokasyon=document.getElementById("lokasyon");
+        function lokasyonAll()
+        {
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else{
+                lokasyon.innerHTML="konum Bulunamadı";
+            }
+        }
+        function showPosition(position){
+            lokasyon.innerHTMl="Enlem:"+ position.coords.latitude +"<br> Boylam :" +
+            position.coords.longitude;
+        }
+         
+    </script>
+</body>
+</html>
